@@ -7,7 +7,10 @@ import hiber.service.UserService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.sql.SQLException;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.List;
+import java.util.Scanner;
 
 public class MainApp {
    public static void main(String[] args) throws SQLException {
@@ -58,5 +61,18 @@ public class MainApp {
 
 
       context.close();
+
+
+      Scanner scanner = new Scanner(System.in);
+      Deque<Integer> deque = new ArrayDeque<>();
+
+      while (scanner.hasNext()) {
+         deque.addFirst(scanner.nextInt()); //может возникнуть ошибка с нахождением Int
+         scanner.nextInt();
+      }
+
+      for (Integer element : deque) {
+         System.out.print(' ' + element.toString());
+      }
    }
 }
